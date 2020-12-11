@@ -1,5 +1,6 @@
 ## Download the zip file and unzipping it and looking at the list 
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",destfile = "./data")
+unzip("data")
 unzip("data",list=TRUE)
 
 ## reading the train and test sets, by default header is FALSE
@@ -29,7 +30,7 @@ names(data1)=c("subject","activity",names[,2])
 
 ## Extracting only the measurements on the mean and standard deviation for each measurement
 data2=data1[,c(grep("mean",names(data1)),grep("std",names(data1)))]
-newdata=data.frame(data1[,c(1,2)],data2)
+newdata=c(data1[,c(1,2)],data2)
 
 ## changing the variable names to lower case
 names(newdata)=tolower(names(newdata))
